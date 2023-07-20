@@ -31,7 +31,7 @@ def read_data(Path):
 OPENAI_KEY='sk-h...'
 os.environ['OPENAI_API_KEY']=OPENAI_KEY
 
-# 读取数据
+# 读取数据,读取具有不同样本数的训练集与测试集
 train=read_data(r"E:\Research_work\Water_quality\data_set\Paper\Parameters\Train\50.csv")
 test=read_data(r"E:\Research_work\Water_quality\data_set\Paper\Parameters\Test\50.csv")
 
@@ -55,6 +55,8 @@ prompt_template=prompt_template_read_data+prompt_template_predict_data
 
 # 构建LLM并预测新样本
 llm=OpenAI(temperature=0,max_tokens=512)
+# 在输入不变的情况下，修改temperature与model_name
+
 #llm=ChatOpenAI(model_name='gpt-3.5-turbo-0301',temperature=0)
 #llm=OpenAI(model_name='text-ada-001',temperature=0,max_tokens=256)
 Last_prompt=PromptTemplate(template=prompt_template,input_variables=['data'])

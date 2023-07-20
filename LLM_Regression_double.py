@@ -48,7 +48,7 @@ to predict the 'y' in some new samples which you only know their 'x'.
 Here is the 'x' corresponding to the new samples :
 {}.
 Each item in the list represent one new sample.
-Calculate the 'y' value corresponding to each new sample and write all this 'y' values as a list. The maximum y value not exceed 160.""".format([i['x'] for i in test])
+Calculate the 'y' value corresponding to each new sample and write all this 'y' values as a list. The maximum y value not exceed 160.""".format([i['x'] for i in test]) #准备测试集
 
 
 prompt_template=prompt_template_read_data+prompt_template_predict_data
@@ -58,4 +58,4 @@ llm=OpenAI(temperature=0,max_tokens=512)
 Last_prompt=PromptTemplate(template=prompt_template,input_variables=['data'])
 read_data_chain=LLMChain(prompt=Last_prompt,llm=llm)
 doc=read_data_chain.run(train)
-print(doc)
+print(doc) #输出预测结果

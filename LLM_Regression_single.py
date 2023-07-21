@@ -42,7 +42,7 @@ predict_data=[]
 prompt_template_predict_data="""You must based on this data's relationship between 'x' and 'y', 
 to predict the 'y' in some new samples which you only know their 'x'.
 The new sample's x={},each item in the list represent one new sample's 'x'.
-Calculate the y value corresponding to each x and write all this y values as a list. """.format([float(i['x']) for i in test]) #准备测试集
+Calculate the y value corresponding to each x and write all this y values as a list. The maximum y value not exceed 160.""".format([float(i['x']) for i in test]) #准备测试集
 
 prompt_template=prompt_template_read_data+prompt_template_predict_data
 
